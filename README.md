@@ -1,7 +1,7 @@
 # Image_Compression_Bankaks
 ---
 ## Description
-Usecase of this application is to compress image to given resolution and upload to server.
+Usecase of this application is to compress image to given resolution and upload it to server.
 
 _**For example**, a user takes an image from their phone which is 4290 x 2800 px in
 size. The user taps on the upload button in the mobile application and the image is
@@ -33,9 +33,14 @@ Under CanvasRenderingContext2D interface, I used _drawImage method_. The drawIma
  - **y**	: The y coordinate where to place the image on the canvas 	
  - **width** : Optional. The width of the image to use (stretch or reduce the image) 	
  - **height** :	Optional. The height of the image to use (stretch or reduce the image)
+ 
+ ## Error Handling and validtion
+ - If input file Empty. Message popped out in the form of alert.
+ - If uploaded file is not image _(PNG, JPEG, JPG)_ alert message get popped.
+ - If any error on uploading file. It's shows error message in console.
 
 ## Sending/Uploading Image
-Using `Jquery 3.5` http request compressed image is send to the server. Image send's in form of BLOB instead of base4/image. **Base64 is almost exactly 8/6 times as bulky as binary (BLOB).**
+Using javascript library `Jquery 3.5`, compressed image is send over the server by using HTTP request. Image send's in form of BLOB instead of base4/image. **Base64 is almost exactly 8/6 times as bulky as binary (BLOB).**
 
 ```
 $.ajax({
@@ -45,3 +50,4 @@ $.ajax({
   $( this ).addClass( "done" );
 });
 ```
+
