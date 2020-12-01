@@ -85,10 +85,16 @@ function myScript(e) {
           // for downloading compress image
           canvas.forEach((elem, index) => {
             elem.addEventListener('click', function(e) {
-              var link = document.createElement('a');
-              link.download = 'filename.png'+index;
-              link.href = elem.toDataURL()
-              link.click();
+              // for IE/Edge 
+              if(window.navigator.msSaveBlob) {
+                window.navigator.msSaveBlob(elem.msToBlob(), `filename${index}.png`)
+              } else {
+                var link = document.createElement('a');
+                 link.download = `filename${index}.png`;
+                 link.href = elem.toDataURL()
+                 link.click();
+              }
+              
             })
           })
 
